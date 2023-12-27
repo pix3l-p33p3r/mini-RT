@@ -6,7 +6,7 @@
 /*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 23:21:23 by elel-yak          #+#    #+#             */
-/*   Updated: 2023/12/27 00:41:18 by elel-yak         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:00:35 by elel-yak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ void	raytrace(t_vars *vars)
 		while (++norm.x < WIDTH)
 			process_pixel(vars, &norm);
 	}
-	printf("frames: %d\n", vars->frames);
 }
+	// printf("frames: %d\n", vars->frames);
