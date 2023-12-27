@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: hchaguer <hchaguer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:02:39 by hchaguer          #+#    #+#             */
-/*   Updated: 2023/12/27 13:56:22 by elel-yak         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:47:34 by hchaguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int			check_extention(char *str);
 void		duplicate_error(char *line, int fd);
 void		init_vars(t_elem *elem, char *str);
 void		missing_check(t_elem *elem);
+void		unexpected_error(char *line, int i);
 
 #endif

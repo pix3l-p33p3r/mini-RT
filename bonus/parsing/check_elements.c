@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_elements.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: hchaguer <hchaguer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 21:00:44 by hchaguer          #+#    #+#             */
-/*   Updated: 2023/12/27 16:46:22 by elel-yak         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:52:30 by hchaguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ void	check_ambient_lightning(t_vars *var, char *line, int i)
 	check_numbers(ambient->color.y, 0, 255);
 	check_numbers(ambient->color.z, 0, 255);
 	if (line[i])
-	{
-		printf("Error: unexpected %c\n", line[i]);
-		exit(EXIT_FAILURE);
-	}
+		unexpected_error(line, i);
 	ambient->color = scale_vec(ambient->color, 1.0f / 255.0f);
 	ambient->color = scale_vec(ambient->color, 1.0f / 255.0f);
 	ambient->color = scale_vec(ambient->color, ambient->ratio);
@@ -91,10 +88,7 @@ void	check_camera(t_vars *var, char *line, int i)
 	cam->aspect_ratio = (float)WIDTH / (float)HEIGHT;
 	check_camera_continue(cam);
 	if (line[i])
-	{
-		printf("Error: unexpected %c\n", line[i]);
-		exit(EXIT_FAILURE);
-	}
+		unexpected_error(line, i);
 	free(line);
 }
 
@@ -113,10 +107,7 @@ void	check_light(t_vars *var, char *line, int i)
 	check_numbers(light.color.z, 0, 255);
 	light.color = scale_vec(light.color, 1.0f / 255.0f);
 	if (line[i])
-	{
-		printf("Error: unexpected %c\n", line[i]);
-		exit(EXIT_FAILURE);
-	}
+		unexpected_error(line, i);
 	var->lights[var->pos1++] = light;
 	if (var->pos1 + 1 == var->len1)
 	{

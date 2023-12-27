@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_objects.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elel-yak <elel-yak@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: hchaguer <hchaguer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 21:17:42 by hchaguer          #+#    #+#             */
-/*   Updated: 2023/12/27 14:13:44 by elel-yak         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:52:56 by hchaguer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ void	check_sphere(t_vars *var, char *line, int i)
 	check_numbers(obj.base_color.z, 0, 255);
 	obj.base_color = scale_vec(obj.base_color, 1.0f / 255.0f);
 	if (line[i])
-	{
-		printf("Error: unexpected %c\n", line[i]);
-		exit(EXIT_FAILURE);
-	}
+		unexpected_error(line, i);
 	obj.has_material = 1;
 	obj.shininess = 20;
 	obj.reflectivity = 0.75;
@@ -58,10 +55,7 @@ void	check_plane(t_vars *var, char *line, int i)
 	check_numbers(obj.base_color.z, 0, 255);
 	obj.base_color = scale_vec(obj.base_color, 1.0f / 255.0f);
 	if (line[i])
-	{
-		printf("Error: unexpected %c\n", line[i]);
-		exit(EXIT_FAILURE);
-	}
+		unexpected_error(line, i);
 	obj.has_material = 1;
 	obj.shininess = 5;
 	obj.reflectivity = 0.5;
@@ -100,10 +94,7 @@ void	check_cylinder(t_vars *var, char *line, int i)
 	check_numbers(obj.base_color.z, 0, 255);
 	obj.base_color = scale_vec(obj.base_color, 1.0f / 255.0f);
 	if (line[i])
-	{
-		printf("Error: unexpected %c\n", line[i]);
-		exit(EXIT_FAILURE);
-	}
+		unexpected_error(line, i);
 	check_cy_continue(&obj);
 	add_object(var, obj);
 	free(line);
