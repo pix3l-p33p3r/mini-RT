@@ -64,4 +64,5 @@ void	render(t_vars *vars)
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, data->img, 0, 0);
 	mlx_destroy_image(vars->mlx, data->img);
+	free(data);
 }
